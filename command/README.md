@@ -32,3 +32,11 @@ I used the command `ssh -p 2220 bandit0@bandit.labs.overthewire.org` in order to
 `cat .hidden`: Read the password inside the file.\
 `logout`: Log out of `bandit3`.\
 `ssh -p 2220 bandit4@bandit.labs.overthewire.org`: Log in to `bandit4` with the password I found in the previous step.
+
+## `bandit5`
+
+`cd inhere`: Move to directory `inhere`\
+`ls`: See what is in the current directory.\
+`file ./-file0*`: To see what kind of files there are in `inhere` directory.\
+`logout`: Log out of `bandit4`.\
+`ssh -p 2220 bandit5@bandit.labs.overthewire.org`: Log in to `bandit5` with the password I found in the previous step.
