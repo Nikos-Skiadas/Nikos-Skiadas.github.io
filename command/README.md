@@ -17,3 +17,10 @@ I used the command `ssh -p 2220 bandit0@bandit.labs.overthewire.org` in order to
 `cat ./-`: Make sure that `-` is read as a file and not as an option.\
 `logout`: Log out of `bandit1`.\
 `ssh -p 2220 bandit2@bandit.labs.overthewire.org`: Log in to `bandit2` with the password I found in the previous step.
+
+## `bandit3`
+
+`ls`: See what is in the home directory.\
+`cat "spaces in this filename"`: Make sure that it reads it as the name of the file and not as the name of 4 different files.\
+`logout`: Log out of `bandit2`.\
+`ssh -p 2220 bandit3@bandit.labs.overthewire.org`: Log in to `bandit3` with the password I found in the previous step.
