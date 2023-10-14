@@ -24,3 +24,11 @@ I used the command `ssh -p 2220 bandit0@bandit.labs.overthewire.org` in order to
 `cat "spaces in this filename"`: Make sure that it reads it as the name of the file and not as the name of 4 different files.\
 `logout`: Log out of `bandit2`.\
 `ssh -p 2220 bandit3@bandit.labs.overthewire.org`: Log in to `bandit3` with the password I found in the previous step.
+
+## `bandit4`
+
+`cd inhere`: Move to directory `inhere`\
+`ls -a`: See what is in the current directory using the option `-a` to see all hidden files.\
+`cat .hidden`: Read the password inside the file.\
+`logout`: Log out of `bandit3`.\
+`ssh -p 2220 bandit4@bandit.labs.overthewire.org`: Log in to `bandit4` with the password I found in the previous step.
