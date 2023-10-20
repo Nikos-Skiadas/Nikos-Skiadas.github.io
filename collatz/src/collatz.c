@@ -1,61 +1,73 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-size_t collatz(int n) 
+#define MAX 100000000
+
+typedef unsigned long long Natural;
+
+Natural memorized_stopping_times[MAX]; // It autmatically initialized to 0 as a global array
+
+Natural collatz(Natural number)
 {
-    size_t length = 1;
+    if(number % 2 == 1)
+        return 3 * number + 1;
 
-    while (n != 1) 
-    {
-        if (n % 2 == 0) 
-        {
-            n /= 2;
-        } 
-        else 
-        {
-            n = 3 * n + 1;
-
-            length++;
-            n /= 2;
-        }
-        length++;
-    }
-
-    return length;
+    else
+        return number / 2;
 }
 
-int main(int argc, char *argv[]) 
+unsigned long long collatz_total_stopping_time(Natural number)
 {
+    unsigned long long total_stopping_time = 0;
 
-    if(argc != 3)
+    Natural temp_number = number;
+
+    while(temp_number > 1)
     {
-        printf("Please provide a lower bound >= 1 and an upper bound <=100000000\n");
+        if(temp_number <= MAX && memorized_stopping_times[temp_number - 1] != 0)
+        {
+            total_stopping_time += memorized_stopping_times[temp_number - 1];
+            break;
+        }
+
+        temp_number = collatz(temp_number); // ATTENTION: danger of overflow
+
+        total_stopping_time += 1;
+    }
+
+    memorized_stopping_times[number - 1] = total_stopping_time; // remember path length for this number
+
+    return total_stopping_time + 1; // length of sequence is all the steps plus the initial number
+}
+
+int main(int argc, char *argv[])
+{
+//    Make sure user provides two arguments for bounds only.
+    if (argc != 3)
+    {
+        printf("Please provide a lower bound > 1 and an upped bound < 100000000.\n");
+
         return -1;
     }
 
-    int lower_bound = atoi(argv[1]);
-    int upper_bound = atoi(argv[2]);
-    
-    if (lower_bound <= 0 || lower_bound > upper_bound || upper_bound > 100000000) 
-    {
-        printf("%d\n", 0);
-    } 
-    else 
-    {
-        size_t maxSeqLength = 0;
+//    Convert arguments to integers.
+    long lower_bound = atoll(argv[1]);
+    long upper_bound = atoll(argv[2]);
 
-        for (int i = lower_bound; i <= upper_bound; i++) 
+//    Default output.
+    unsigned long long max_collatz = 0;
+
+//    Check that bounds are within specification and order.
+    if(lower_bound >= 1 && upper_bound <= MAX && lower_bound < upper_bound)
+        for (long number = lower_bound; number <= upper_bound; number += 1)
         {
-            size_t length = collatz(i);
-            if (length > maxSeqLength) 
-            {
-                maxSeqLength = length;
-            }
+            unsigned long long total_stopping_time = collatz_total_stopping_time((Natural)number);
+
+            if (max_collatz < total_stopping_time)
+                max_collatz = total_stopping_time;
         }
 
-        printf("The largest Collatz sequence for numbers from %d to %d is %d.", lower_bound, upper_bound, maxSeqLength);
-    }
+    printf("%llu\n", max_collatz);
 
     return 0;
 }
-
