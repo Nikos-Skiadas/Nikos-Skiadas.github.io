@@ -5,7 +5,7 @@
 
 typedef unsigned long long Natural;
 
-Natural memorized_stopping_times[MAX]; // It autmatically initialized to 0 as a global array
+size_t memorized_stopping_times[MAX]; // It autmatically initialized to 0 as a global array
 
 Natural collatz(Natural number)
 {
@@ -16,9 +16,9 @@ Natural collatz(Natural number)
         return number / 2;
 }
 
-unsigned long long collatz_total_stopping_time(Natural number)
+size_t collatz_total_stopping_time(Natural number)
 {
-    unsigned long long total_stopping_time = 0;
+    size_t total_stopping_time = 0;
 
     Natural temp_number = number;
 
@@ -55,19 +55,19 @@ int main(int argc, char *argv[])
     long upper_bound = atoll(argv[2]);
 
 //    Default output.
-    unsigned long long max_collatz = 0;
+    size_t max_collatz = 0;
 
 //    Check that bounds are within specification and order.
     if(lower_bound >= 1 && upper_bound <= MAX && lower_bound < upper_bound)
         for (long number = lower_bound; number <= upper_bound; number += 1)
         {
-            unsigned long long total_stopping_time = collatz_total_stopping_time((Natural)number);
+            size_t total_stopping_time = collatz_total_stopping_time((Natural)number);
 
             if (max_collatz < total_stopping_time)
                 max_collatz = total_stopping_time;
         }
 
-    printf("%llu\n", max_collatz);
+    printf("%u\n", max_collatz);
 
     return 0;
 }
