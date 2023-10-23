@@ -40,3 +40,12 @@ I used the command `ssh -p 2220 bandit0@bandit.labs.overthewire.org` in order to
 `file ./-file0*`: To see what kind of files there are in `inhere` directory.\
 `logout`: Log out of `bandit4`.\
 `ssh -p 2220 bandit5@bandit.labs.overthewire.org`: Log in to `bandit5` with the password I found in the previous step.
+
+## `bandit6`
+
+`cd inhere`: Move to directory `inhere`\
+`ls`: See what is in the current directory.\
+`find -type f -size 1033c ! -executable -exec file {} \; | grep 'ASCII'`: Search for non-executable (`! -executable`) files of size 1033 bytes (`-size 1033c`), that are human-readable (`grep 'ASCII'`).\
+`cat './maybehere07/.file2'`: To see the password inside the file.
+`logout`: Log out of `bandit5`.\
+`ssh -p 2220 bandit6@bandit.labs.overthewire.org`: Log in to `bandit5` with the password I found in the previous step.
