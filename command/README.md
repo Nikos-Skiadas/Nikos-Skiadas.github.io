@@ -48,11 +48,18 @@ I used the command `ssh -p 2220 bandit0@bandit.labs.overthewire.org` in order to
 `find -type f -size 1033c ! -executable -exec file {} \; | grep 'ASCII'`: Search for non-executable (`! -executable`) files of size 1033 bytes (`-size 1033c`), that are human-readable (`grep 'ASCII'`).\
 `cat './maybehere07/.file2'`: To see the password inside the file.
 `logout`: Log out of `bandit5`.\
-`ssh -p 2220 bandit6@bandit.labs.overthewire.org`: Log in to `bandit5` with the password I found in the previous step.
+`ssh -p 2220 bandit6@bandit.labs.overthewire.org`: Log in to `bandit6` with the password I found in the previous step.
 
 ## `bandit7`
 
 `find / -user bandit7 -group bandit6 -size 33c 2> /dev/null`: Start searching from the root directory (`find /`) for a file owned by `bandit7`(`-user bandit7`) in the group `bandit6` (`-group bandit6`) that is of size 33 bytes (`-size 33c`) and suppressing any permision denied erroes that occur (`2> /dev/null`).\
 `cat /var/lib/dpkg/info/bandit7.password`: To see the password inside the file.\
-`logout`: Log out of `bandit5`.\
-`ssh -p 2220 bandit7@bandit.labs.overthewire.org`: Log in to `bandit6` with the password I found in the previous step.
+`logout`: Log out of `bandit6`.\
+`ssh -p 2220 bandit7@bandit.labs.overthewire.org`: Log in to `bandit7` with the password I found in the previous step.
+
+## `bandit8`
+
+`ls`: See what is in the current directory.\
+`grep millionth data.txt`: Get the line with that contains `millionth` to get the password.\
+`logout`: Log out of `bandit7`.\
+`ssh -p 2220 bandit8@bandit.labs.overthewire.org`: Log in to `bandit8` with the password I found in the previous step.
