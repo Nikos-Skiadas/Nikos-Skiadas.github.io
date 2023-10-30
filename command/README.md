@@ -77,3 +77,10 @@ I used the command `ssh -p 2220 bandit0@bandit.labs.overthewire.org` in order to
 `strings data.txt | grep "=="`: Since `grep` command detects `data.txt` as a binary file I used command `strings` to extract human readable text from the binary file and then I used the command `grep` to find the password next to the consecutive `=`.\
 `logout`: Log out of `bandit9`.\
 `ssh -p 2220 bandit10@bandit.labs.overthewire.org`: Log in to `bandit10` with the password I found in the previous step.
+
+## `bandit11`
+
+`ls`: See what is in the current directory.\
+`base64 -d data.txt`: Since the password is encoded into Base64 I used the command `base64` with the option `-d` to decode the file so it is human readable.\
+`logout`: Log out of `bandit10`.\
+`ssh -p 2220 bandit11@bandit.labs.overthewire.org`: Log in to `bandit11` with the password I found in the previous step.
