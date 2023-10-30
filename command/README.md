@@ -63,3 +63,10 @@ I used the command `ssh -p 2220 bandit0@bandit.labs.overthewire.org` in order to
 `grep millionth data.txt`: Get the line with that contains `millionth` to get the password.\
 `logout`: Log out of `bandit7`.\
 `ssh -p 2220 bandit8@bandit.labs.overthewire.org`: Log in to `bandit8` with the password I found in the previous step.
+
+## `bandit9`
+
+`ls`: See what is in the current directory.\
+`sort data.txt | uniq -u`: Aeeand the lines alphabetically (`sort data.txt`) and display only the unique line (`uniq`) that only occur once (`-u`).\
+`logout`: Log out of `bandit8`.\
+`ssh -p 2220 bandit9@bandit.labs.overthewire.org`: Log in to `bandit9` with the password I found in the previous step.
