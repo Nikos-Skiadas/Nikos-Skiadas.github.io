@@ -70,3 +70,10 @@ I used the command `ssh -p 2220 bandit0@bandit.labs.overthewire.org` in order to
 `sort data.txt | uniq -u`: Aeeand the lines alphabetically (`sort data.txt`) and display only the unique line (`uniq`) that only occur once (`-u`).\
 `logout`: Log out of `bandit8`.\
 `ssh -p 2220 bandit9@bandit.labs.overthewire.org`: Log in to `bandit9` with the password I found in the previous step.
+
+## `bandit10`
+
+`ls`: See what is in the current directory.\
+`strings data.txt | grep "=="`: Since `grep` command detects `data.txt` as a binary file I used command `strings` to extract human readable text from the binary file and then I used the command `grep` to find the password next to the consecutive `=`.\
+`logout`: Log out of `bandit9`.\
+`ssh -p 2220 bandit10@bandit.labs.overthewire.org`: Log in to `bandit10` with the password I found in the previous step.
